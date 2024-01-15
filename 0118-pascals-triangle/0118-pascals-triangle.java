@@ -1,4 +1,5 @@
 class Solution {
+    // function to generate a row
     public List<Integer> generateRow(int row) {
         List<Integer> tempList = new ArrayList<>();
             tempList.add(1);
@@ -10,6 +11,8 @@ class Solution {
             }
             return tempList;
     }
+    
+    // Main function
     public List<List<Integer>> generate(int numRows) {
         List<List<Integer>> ansList = new ArrayList<>();
         for(int row=1; row<=numRows; row++) {
