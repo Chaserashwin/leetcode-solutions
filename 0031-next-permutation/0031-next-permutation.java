@@ -25,9 +25,9 @@ class Solution {
                 }
             }
             
-        swap(nums, idx1, idx2);
-        // reverse the rest 
-        reverse(nums, idx1+1);
+            swap(nums, idx1, idx2);
+            // reverse the rest 
+            reverse(nums, idx1+1);
         }
     }
 
