@@ -1,7 +1,9 @@
 class Solution {
     public void rotate(int[][] matrix) {
         int n = matrix.length;
+        // first step is to transpose
         transpose(matrix, n);
+        // second step is to reverse the rows
         reverse(matrix, n);
     }
     public void transpose(int[][] matrix, int n) {
