@@ -11,6 +11,6 @@ class Solution {
             }
         }
         if(a || b || c || d) return true;
-        return false;
+        else return false;
     }
 }
