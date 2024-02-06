@@ -1,3 +1,5 @@
+// BETTER SOLUTION
+
 import java.util.*;
 class Solution {
     public int majorityElement(int[] nums) {
@@ -20,4 +22,6 @@ class Solution {
 
 }
 
+
+// OPTIMAL SOLUTION
 // The getOrDefault(Object key, V defaultValue) method of Map interface, implemented by HashMap class is used to get the value mapped with specified key. If no value is mapped with the provided key then the default value is returned.
