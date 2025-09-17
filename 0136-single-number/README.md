@@ -35,3 +35,6 @@
 	<li><code>-3 * 10<sup>4</sup> &lt;= nums[i] &lt;= 3 * 10<sup>4</sup></code></li>
 	<li>Each element in the array appears twice except for one element which appears only once.</li>
 </ul>
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/815a7778-4daf-49cf-85e5-a17f655b58c1" />
+
