@@ -10,15 +10,31 @@
  * @return {boolean}
  */
 var isPalindrome = function(head) {
-    let res = [];
-    let curr = head;
-    while(curr) {
-        res.push(curr.val);
-        curr = curr.next;
+    // finding the middle node
+    let slow = fast = head;
+    while(fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next;
     }
-    let n = res.length;
-    for(let i=0; i<n/2; i++) {
-        if(res[i] != res[n-i-1]) return false;
+    let mid = slow;
+    // reverse the second half of linked list
+    let prev = null;
+    let curr = mid;
+    while(curr) {
+        let temp = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = temp;
+    }
+    let end = prev;
+    // checking the palindrome
+    let start = head;
+    while(end) { 
+        if(start.val != end.val) return false;
+        else{
+            start = start.next;
+            end = end.next;
+        }
     }
     return true;
 };
