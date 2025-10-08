@@ -10,8 +10,8 @@ var isPalindrome = function(s) {
         if(s[start] === s[end]) {
             ++start; --end;
         }
-        else if(!s[start].match(/[a-z0-9]/i)) ++start;
-        else if(!s[end].match(/[a-z0-9]/i)) --end;
+        else if(!s[start].match(/[a-z0-9]/)) ++start;
+        else if(!s[end].match(/[a-z0-9]/)) --end;
         else {
             return false;
         }
