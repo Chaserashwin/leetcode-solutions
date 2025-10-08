@@ -13,7 +13,6 @@ var isPalindrome = function(s) {
         else if(!s[start].match(/[a-z0-9]/i)) ++start;
         else if(!s[end].match(/[a-z0-9]/i)) --end;
         else {
-            console.log(s[start] + " " + s[end]);
             return false;
         }
     }
