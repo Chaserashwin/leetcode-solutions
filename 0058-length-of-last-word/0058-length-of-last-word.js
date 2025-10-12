@@ -9,7 +9,7 @@ var lengthOfLastWord = function(s) {
         if(s[n] != " ") {
             count++;
         }
-        else if(count > 0) {
+        else if(s[n] == " " && count > 0) {
             break;
         }
         n--;
