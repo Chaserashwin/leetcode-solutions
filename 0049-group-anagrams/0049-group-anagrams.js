@@ -3,17 +3,26 @@
  * @return {string[][]}
  */
 var groupAnagrams = function(strs) {
-    let map={};
-//sort the string and use it as key and if it matches then store the value in as it is fashion
-    for(let i=0; i<strs.length; i++) {  // n
-        let sortedStr = strs[i].split("").sort().join("");  //O(m log m)
-        if(!map[sortedStr]) {
-            map[sortedStr] = [strs[i]];
-        } 
+    let map = {};
+    for(let i=0; i<strs.length; i++) {
+        //creating a key
+        let freqArr = Array(26).fill(0);
+        let s = strs[i];
+        for(let j=0; j<s.length; j++) {
+            let index = s[j].charCodeAt() - 'a'.charCodeAt();
+            ++freqArr[index];
+        }
+        let key = "";
+        for(let k=0; k<26; k++) {
+            key = key + String.fromCharCode(k) + freqArr[k];
+        }
+        //fill the map
+        if(!map[key]) {
+            map[key] = [s];
+        }
         else{
-            map[sortedStr].push(strs[i]);
+            map[key].push(s);
         }
     }
-    // return the values of the map in the array
     return [...Object.values(map)];
 };
