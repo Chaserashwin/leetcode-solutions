@@ -4,16 +4,16 @@
  */
 var evalRPN = function(tokens) {
     let stack = [];
-    for(let i = 0; i < tokens.length; i++) {
-        if(tokens[i] === "+" || tokens[i] === "-" || tokens[i] === "*" || tokens[i] === "/") {
-            let second = stack.pop();
-            let first = stack.pop();
-            let output = eval(`${first} ${tokens[i]} ${second}`);
-            stack.push(Math.trunc(output));
-        }
-        else {
+    for(let i=0; i<tokens.length; i++) {
+        if(["+","-","*","/"].includes(tokens[i])) {
+            let a = stack.pop();
+            let b = stack.pop();
+            let ans = eval(`${b} ${tokens[i]} ${a}`);
+            stack.push(Math.trunc(ans));
+        } 
+        else{
             stack.push(tokens[i]);
         }
     }
-    return Number(stack.pop());
+    return Number(stack.pop())
 };
