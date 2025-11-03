@@ -56,3 +56,6 @@ var orangesRotting = function(grid) {
 
     return maxMinutes;
  };
+
+// T->O(m*n)
+// S->O(m*n)
