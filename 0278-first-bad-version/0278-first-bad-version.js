@@ -20,15 +20,15 @@ var solution = function(isBadVersion) {
     return function(n) {
         let l = 1;
         let r = n;
-        while(l <= r) {
+        while(l < r) {
             let mid = l + Math.floor((r-l)/2);
-            if(isBadVersion(mid)) {
-                r = mid;
-                if(l == r) return mid;
-            }
-            else{
+            if(!isBadVersion(mid)) {
                 l = mid + 1;
             }
+            else{
+                r = mid;
+            }
         }
+        if(l == r) return l;
     };
 };
