@@ -29,6 +29,6 @@ var solution = function(isBadVersion) {
                 r = mid;
             }
         }
-        if(l == r) return l;
+        return r;
     };
 };
