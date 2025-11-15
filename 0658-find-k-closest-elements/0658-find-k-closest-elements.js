@@ -8,9 +8,9 @@ var findClosestElements = function(arr, k, x) {
     let l = 0;
     let r = arr.length - 1;
     while(l < r) {
-        let m = Math.floor((r-l)/2);
+        let m = l + Math.floor((r-l)/2);
         //shfting sliding window to right
-        if(Math.abs(arr[m+k]-x) < Math.abs(arr[m]-x)) {
+        if((arr[m+k]-x) < (x-arr[m])) {
             l = m + 1;
         }
         //shfting sliding window to left
@@ -18,5 +18,5 @@ var findClosestElements = function(arr, k, x) {
             r = m;
         }
     }
-    return arr.slice(l, l+k);
+    return arr.slice(r, r+k);
 };
