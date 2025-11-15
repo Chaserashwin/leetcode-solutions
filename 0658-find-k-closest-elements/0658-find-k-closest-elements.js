@@ -18,5 +18,12 @@ var findClosestElements = function(arr, k, x) {
             r = m;
         }
     }
-    return arr.slice(r, r+k);
+
+    let ans = [];
+    for(let i=l; i<l+k; i++) {
+        ans.push(arr[i]);
+    }
+    return ans;
+
+    // return arr.slice(r, r+k);
 };
