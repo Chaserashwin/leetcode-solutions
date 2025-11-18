@@ -4,19 +4,12 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    let n = nums.length;
-    let map = {};
-
-    //creating a map 
-    for(let i=0; i<n; i++) {
-        map[nums[i]] = i+1;
-    }
-
-    //checking if its complement exists
-    for(let i=0; i<n; i++) {
-        let pairToFind = target - nums[i];
-        if(map[pairToFind]) {
-            return [i+1, map[pairToFind]];
-        }
+    let l = 0;
+    let r = nums.length - 1;
+    while(l < r) {
+        let sum = nums[l] + nums[r];
+        if(sum > target) r--;
+        else if(sum <  target) l++;
+        else return [l+1, r+1];
     }
 };
