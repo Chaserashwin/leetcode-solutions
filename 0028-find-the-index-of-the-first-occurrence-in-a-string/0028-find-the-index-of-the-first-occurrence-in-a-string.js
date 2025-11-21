@@ -6,17 +6,42 @@
 var strStr = function(haystack, needle) {
     let h = haystack.length;
     let n = needle.length;
-    //going through each element in the haystack
-    for(let i=0; i<=h-n; i++) {
-        let j=0;
-        //checking through the sliding window matches with needle or not
-        for(j=0; j<n; j++) {
-            if(needle[j] !== haystack[i+j]) {
-                break;
+    //building lps array
+    let lps = [0];
+    let i = 0;
+    let j = 1;
+    while(j<n) {
+        if(needle[i] === needle[j]) {
+            lps[j] = i+1;
+            ++i; ++j;
+        }
+        else {
+            if(i === 0) {
+                lps[j] = 0;
+                ++j;
+            }
+            else{
+                i = lps[i-1];
             }
         }
-        //fully matching with the needle
-        if(j === n) return i;
+    }
+    //Check for the string
+    i = j = 0;
+    while(i<h) {
+        if(haystack[i] === needle[j]) {
+            ++i; ++j;
+        }
+        else{
+            if(j === 0) {
+                ++i;
+            }
+            else {
+                j = lps[j-1];
+            }
+        }
+        if(j == n) {
+            return i-n;
+        } 
     }
     return -1;
 };
