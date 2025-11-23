@@ -12,16 +12,45 @@
  * @return {ListNode}
  */
 var getIntersectionNode = function(headA, headB) {
-    // put all nodes of headB in set
-    let store = new Set();
-    while(headB) {
-        store.add(headB);
+    //finding the length of A
+    let a = 0;
+    let pA = headA;
+    while(pA) {
+        ++a;
+        pA = pA.next;
+    }
+
+    //finding the length of B
+    let b = 0;
+    let pB = headB;
+    while(pB) {
+        ++b;
+        pB = pB.next;
+    }
+
+    let diff = Math.abs(a-b);
+
+    //I want the first list as small & second as large
+    //Interchanging the lists if this opposite is true
+    if(a > b) {
+        let temp = headA;
+        headA = headB;
+        headB = temp;
+    } 
+
+    //moving the pB to the diff
+    for(let i=0; i<diff; i++) {
         headB = headB.next;
     }
-    // check for each element of headA if they are present in the set
-    while(headA) {
-        if(store.has(headA)) return headA;
-        headA = headA.next;
+
+    pA = headA;
+    pB = headB;
+
+    //moving both list pointers together until they reach to the same point
+    while(pA != pB) {
+        pA = pA.next;
+        pB = pB.next;
     }
-    return null;
-};
+    return pA;
+
+ };
