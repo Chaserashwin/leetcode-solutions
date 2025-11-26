@@ -19,7 +19,8 @@ var trap = function(height) {
     //calculating the water hold
     let ans = 0;
     for(let i=0; i<h; i++) {
-        ans += Math.min(maxL[i], maxR[i]) - height[i];
+        let waterTrapped = Math.min(maxL[i], maxR[i]) - height[i];
+        ans += waterTrapped < 0 ? 0 : waterTrapped;
     }
     return ans;
 };
