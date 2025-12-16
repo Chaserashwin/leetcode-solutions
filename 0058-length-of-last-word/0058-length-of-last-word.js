@@ -7,12 +7,12 @@ var lengthOfLastWord = function(s) {
     let count = 0;
     while(n >= 0) {
         if(s[n] != " ") {
-            count++;
+            ++count;
         }
         else if(s[n] == " " && count > 0) {
             break;
         }
-        n--;
+        --n;
     }
     return count;
 };
